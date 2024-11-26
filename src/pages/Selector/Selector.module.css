@@ -1,0 +1,230 @@
+/* Container for the Selector (Buttons) */
+.container {
+  display: flex;
+  flex-direction: row; /* Place buttons side by side */
+  justify-content: center; /* Center the buttons */
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  padding: 20px;
+  gap: 50px; /* Add gap between buttons */
+  overflow: hidden; /* Ensure container itself doesn't scroll */
+  padding-top: 100px; /* Add padding to the top for logo visibility */
+}
+
+/* Disable scrolling on the body */
+body {
+  overflow: auto; /* This will prevent scrolling on larger screens */
+}
+
+/* Logo container in the top center */
+.logoContainer {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%); /* Center the logo horizontally */
+}
+
+.logo {
+  width: 170px;
+  height: auto;
+}
+
+/* Button default state */
+.button {
+  width: 450px;
+  padding: 20px;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+  background-color: #eb7e21;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Apply transition on hover and normal state */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: slideUp 1s ease forwards; /* Apply animation */
+  opacity: 0; /* Hide buttons initially */
+  transform: scale(1); /* Initial scale */
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px); /* Start 50px below */
+    opacity: 0; /* Hidden */
+  }
+  100% {
+    transform: translateY(0); /* End at normal position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+.button:hover {
+  transform: scale(1.018) !important; 
+  transition: transform 0.3s ease !important; 
+}
+
+.customer {
+  background-color: hsl(227.03deg 50.68% 28.63%);
+  animation-delay: 0.4s; 
+}
+
+.business {
+  background-color: hsl(227.03deg 50.68% 28.63%);
+  animation-delay: 0.6s; 
+}
+
+.channelPartner {
+  background-color: hsl(227.03deg 50.68% 28.63%);
+  animation-delay: 0.8s; 
+}
+
+.button span {
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+.modalContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+  width: 90%;
+  max-width: 500px;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.button span:first-child {
+  font-size: 18px;
+  color: black;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.button span:last-child {
+  margin-top: 15px;
+  font-size: 18px;
+  color: white;
+  background-color: #eb7e21;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.skipButton {
+  position: absolute;
+  bottom: 20px; /* Position skip button at the bottom */
+  left: 50%; 
+  transform: translateX(-50%); /* Center horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideIn 3s ease forwards; 
+}
+
+/* Skip button style */
+.skipButtonStyle {
+  background-color: #333; /* Dark background color */
+  color: white; /* White text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover effect for skip button */
+.skipButtonStyle:hover {
+  background-color: #555; /* Slightly lighter color on hover */
+}
+
+/* Slide-in animation for the skip button */
+@keyframes slideIn {
+  0% {
+    left: -100%; /* Start off-screen to the left */
+    transform: translateX(0); /* Initial transform state */
+  }
+  100% {
+    left: 50%; /* End at the center */
+    transform: translateX(-50%); /* Adjust for centering */
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  body {
+    overflow: auto; /* Allow scrolling on small screens */
+  }
+
+  .container {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    gap: 20px; /* Reduce gap between buttons */
+    height: auto; /* Allow height to adjust to content */
+    padding-top: 80px; /* Adjust padding for logo visibility */
+  }
+
+  .button {
+    width: 90%; /* Make buttons take up most of the screen width */
+    padding: 15px; /* Adjust padding */
+    font-size: 16px; /* Adjust font size */
+  }
+
+  .button span {
+    font-size: 1rem; /* Adjust font size for spans */
+  }
+
+  .logo {
+    width: 120px; /* Adjust logo size */
+  }
+
+  .skipButton {
+    position: fixed; /* Fixed positioning for small screens */
+    bottom: -10px; /* Position it 20px from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center properly */
+    font-size: 16px; /* Adjust font size for small screens */
+  }
+
+  .skipButtonStyle {
+    padding: 8px 16px; /* Adjust padding */
+    font-size: 16px; /* Adjust font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    width: 100%; /* Full width for small devices */
+  }
+
+  .logo {
+    width: 100px; /* Further adjust logo size */
+  }
+}

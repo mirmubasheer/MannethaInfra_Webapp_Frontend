@@ -1,0 +1,9 @@
+.text-hover {
+    color: black;
+    font-weight: 400;
+  }
+  
+  .text-hover:hover {
+    color: white;
+  }
+  
